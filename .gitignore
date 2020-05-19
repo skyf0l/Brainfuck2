@@ -1,3 +1,9 @@
+# Bin
+bf2
+
+# Logs
+*.log
+
 # Prerequisites
 *.d
 
@@ -21,6 +27,7 @@
 *.a
 *.la
 *.lo
+/sources/include/lib/*
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -50,3 +57,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Tests files
+unit_tests
+*.gcda
+*.gcno
