@@ -20,17 +20,18 @@ static mem_t *memory_create(uint tape_size)
 
     if (!memory)
         return (NULL);
+    memory->script.ops = NULL;
+    memory->script.op_id = 0;
     memory->tape_ptr = 0;
     memory->tape_size = tape_size;
     memory->tape = malloc(sizeof(unsigned char) * (tape_size));
-    memory->while_layer = 0;
     if (!memory->tape)
         return (memory_destroy(memory));
     memset(memory->tape, 0, tape_size);
     return (memory);
 }
 
-int interpretor(unsigned char const *instructions)
+int interpretor(unsigned char *instructions)
 {
     mem_t *memory = memory_create(DEFAULT_TAPE_SIZE);
 
@@ -38,8 +39,10 @@ int interpretor(unsigned char const *instructions)
         fprintf(stderr, "bf2: malloc failed.\n");
         return (EXIT_FAILURE);
     }
-    for (int i = 0; instructions[i]; i++) {
-        INSTRUCTIONS[instructions[i]](memory);
+    memory->script.ops = instructions;
+    while (instructions[memory->script.op_id]) {
+        INSTRUCTIONS[instructions[memory->script.op_id]](memory);
+        ++(memory->script.op_id);
     }
     memory_destroy(memory);
     return (EXIT_SUCCESS);
