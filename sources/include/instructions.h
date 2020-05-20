@@ -1,6 +1,9 @@
 #ifndef INSTRUCTIONS_H_
 #define INSTRUCTIONS_H_
 
+// dept struct
+typedef struct mem_s mem_t;
+
 // nothing
 int nothing(mem_t *);
 

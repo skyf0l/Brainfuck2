@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2020
-** TESTS_READ_FILE
-** File description:
-** Test read_file
-*/
-
 #include <criterion/criterion.h>
 
 unsigned char *read_file(const char *file_path);

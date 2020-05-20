@@ -1,10 +1,3 @@
-##
-## EPITECH PROJECT, 2019
-## MAKEFILE
-## File description:
-## My makefile
-##
-
 # ========================= VAR ========================= #
 
 NAME = brainfuck2
