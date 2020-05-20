@@ -10,5 +10,7 @@ int main(int ac, char const **av)
         printf(HELP);
         return (EXIT_SUCCESS);
     }
-    return (EXIT_SUCCESS);
+    if (ac == 1)
+        return (interactive_console());
+    return (file_interpretor(av[1]));
 }
