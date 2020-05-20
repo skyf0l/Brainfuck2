@@ -7,6 +7,12 @@ Originaly, brainfuck operates on an array of memory cells, also referred to as t
 
 Each instruction is executed one by one and can modify the state of tape.
 
+## Usage:
+
+You can open an interactive interpretor in console with `./bf2` **(Not implemented)**
+
+You can execute brainfuck scripts with `./bf2 filepath`
+
 ## Basic Brainfuck Commands:
 
 Initialisation (C equivalent)
@@ -95,3 +101,11 @@ For fork instruction, child tape is a copy independent of parent tape
 `10+` is same that `++++++++++` **(Not implemented)**
 
 `3[3@func@]2]` is same that `[[[@function@@function@@function@]]]` **(Not implemented)**
+
+## Build:
+
+To build the project you must have GNU, GCC and libc
+
+```
+$> make
+```
