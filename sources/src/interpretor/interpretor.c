@@ -14,7 +14,7 @@ static void *memory_destroy(mem_t *memory)
     return (NULL);
 }
 
-static mem_t *memory_create(size_t tape_size)
+static mem_t *memory_create(uint tape_size)
 {
     mem_t *memory = malloc(sizeof(mem_t));
 

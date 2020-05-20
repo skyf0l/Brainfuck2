@@ -4,15 +4,15 @@
 //////////////////////// VAR ////////////////////////
 
 // default
-static size_t const DEFAULT_TAPE_SIZE = 30000;
+static uint const DEFAULT_TAPE_SIZE = 30000;
 
 // struct
 typedef struct mem_s mem_t;
 struct mem_s
 {
     unsigned char *tape;
-    size_t tape_size;
-    int tape_ptr;
+    uint tape_size;
+    uint tape_ptr;
 };
 
 ///////////////////// PROTOTYPE /////////////////////
