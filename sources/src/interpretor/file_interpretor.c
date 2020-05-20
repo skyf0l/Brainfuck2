@@ -17,17 +17,17 @@ static int get_file_size(const char *file_path)
     return (st.st_size);
 }
 
-char *read_file(const char *file_path)
+unsigned char *read_file(const char *file_path)
 {
     int file_size;
-    char *contents;
+    unsigned char *contents;
     FILE *f;
     int bytes_read;
 
     file_size = get_file_size(file_path);
     if (file_size < 0)
         return (NULL);
-    contents = malloc(sizeof(char) * (file_size + 1));
+    contents = malloc(sizeof(unsigned char) * (file_size + 1));
     if (!contents) {
         fprintf(stderr, "bf2: malloc failed.\n");
         return (NULL);
@@ -38,13 +38,14 @@ char *read_file(const char *file_path)
         free(contents);
         return (NULL);
     }
-    bytes_read = fread(contents, sizeof(char), file_size, f);
+    bytes_read = fread(contents, sizeof(unsigned char), file_size, f);
     if (bytes_read != file_size) {
         fprintf(stderr, "bf2: cannot read '%s': %s.\n", file_path, strerror (errno));
         free(contents);
         fclose(f);
         return (NULL);
     }
+    contents[bytes_read] = '\0';
     fclose(f);
     return contents;
 }
@@ -52,7 +53,7 @@ char *read_file(const char *file_path)
 int file_interpretor(char const *file_path)
 {
     int rtn_value;
-    char *file_content = read_file(file_path);
+    unsigned char *file_content = read_file(file_path);
 
     if (!file_content)
         return (EXIT_FAILURE);
