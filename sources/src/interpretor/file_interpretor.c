@@ -17,7 +17,7 @@ static int get_file_size(const char *file_path)
     return (st.st_size);
 }
 
-static char *read_file(const char *file_path)
+char *read_file(const char *file_path)
 {
     int file_size;
     char *contents;
