@@ -21,7 +21,7 @@ TESTS_SRC = $(shell find tests/ -name *.c)
 
 LIBS =
 
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -O3
 
 IFLAGS = -I./include
 
