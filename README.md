@@ -41,7 +41,7 @@ memset(mem, 0, tape_size);
 |-----------|----------|--------------|---------------------------------------------|
 | tape_size  | greater or equal to 1 | 30000 | Set tape size in cell **(Not implemented)** |
 | cell_size  | greater or equal to 1 | 8 | Set cell size in bit **(Not implemented)** |
-| cell_signed  | true or false | false | Set if cell is signed (if cell_size is 8 bits, cell value is between 0 and 255) or unsigned (between -128 and 127) **(Not implemented)** |
+| cell_type  | signed or unsigned | unsigned | Set cell type (if cell_size is 8 bits, value of unsigned cell is between 0 and 255 and signed between -128 and 127) **(Not implemented)** |
 
 Format: `@name=value@`
 
