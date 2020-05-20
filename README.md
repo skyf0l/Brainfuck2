@@ -30,7 +30,7 @@ memset(mem, 0, tape_size);
 | +         | (*ptr)++;           | Increment (increase by one) the cell at the pointer.                                       |
 | -         | (*ptr)--;           | Decrement (decrease by one) the cell at the pointer.                                       |
 | .         | putchar(*ptr);      | Output the current cell value in current output (in ASCII).                                                  |
-| ,         | (*ptr) = getchar(); | Accept one value from current input and storing it in the current cell                                   |
+| ,         | (*ptr) = getchar(); | Accept one value from current input and storing it in the current cell **(Not implemented)**                                   |
 | [         | while(*ptr) {       | Jump forward to the command after the corresponding ] if the cell value is zero.               |
 | ]         | }                   | Jump back to the command after the corresponding [ if the cell value is non-zero. |
 
