@@ -6,7 +6,8 @@
 ///////////////////// PROTOTYPE /////////////////////
 
 // interpretor
-int file_interpretor(char const *path);
+int file_interpretor(char const *file_path);
+int interpretor(char const *data);
 
 // console
 int interactive_console(void);
