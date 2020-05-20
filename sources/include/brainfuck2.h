@@ -25,8 +25,13 @@ struct mem_s
 
 ///////////////////// PROTOTYPE /////////////////////
 
+// memory
+mem_t *memory_create(uint tape_size);
+void *memory_destroy(mem_t *memory);
+
 // interpretor
 int file_interpretor(char const *file_path);
+unsigned char *read_file(const char *file_path);
 int interpretor(unsigned char *instructions);
 
 // console

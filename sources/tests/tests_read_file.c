@@ -1,6 +1,5 @@
 #include <criterion/criterion.h>
-
-unsigned char *read_file(const char *file_path);
+#include "brainfuck2.h"
 
 Test(read_file, unexist_file)
 {
