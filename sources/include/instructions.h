@@ -9,6 +9,9 @@ int add(mem_t *);
 int sub(mem_t *);
 int move_ptr_right(mem_t *memory);
 int move_ptr_left(mem_t *memory);
+int print_char(mem_t *memory);
+int while_in(mem_t *memory);
+int while_out(mem_t *memory);
 
 static int (* const INSTRUCTIONS[128])() = {
     nothing,
@@ -57,7 +60,7 @@ static int (* const INSTRUCTIONS[128])() = {
     add,     // +
     nothing, // ,
     sub,     // -
-    nothing, // .
+    print_char, // .
     nothing, // /
     nothing, // 0
     nothing, // 1
@@ -102,9 +105,9 @@ static int (* const INSTRUCTIONS[128])() = {
     nothing, // X
     nothing, // Y
     nothing, // Z
-    nothing, // [
+    while_in, // [
     nothing, // \\/
-    nothing, // ]
+    while_out, // ]
     nothing, // ^
     nothing, // _
     nothing, // `

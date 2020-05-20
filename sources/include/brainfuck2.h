@@ -13,6 +13,7 @@ struct mem_s
     unsigned char *tape;
     uint tape_size;
     uint tape_ptr;
+    int while_layer;
 };
 
 ///////////////////// PROTOTYPE /////////////////////

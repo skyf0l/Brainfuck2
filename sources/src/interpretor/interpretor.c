@@ -23,6 +23,7 @@ static mem_t *memory_create(uint tape_size)
     memory->tape_ptr = 0;
     memory->tape_size = tape_size;
     memory->tape = malloc(sizeof(unsigned char) * (tape_size));
+    memory->while_layer = 0;
     if (!memory->tape)
         return (memory_destroy(memory));
     memset(memory->tape, 0, tape_size);
