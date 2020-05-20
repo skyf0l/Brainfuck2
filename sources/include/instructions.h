@@ -7,6 +7,8 @@ int nothing(mem_t *);
 // brainfuck
 int add(mem_t *);
 int sub(mem_t *);
+int move_ptr_right(mem_t *memory);
+int move_ptr_left(mem_t *memory);
 
 static int (* const INSTRUCTIONS[128])() = {
     nothing,
@@ -69,9 +71,9 @@ static int (* const INSTRUCTIONS[128])() = {
     nothing, // 9
     nothing, // :
     nothing, // ;
-    nothing, // <
+    move_ptr_left, // <
     nothing, // =
-    nothing, // >
+    move_ptr_right, // >
     nothing, // ?
     nothing, // @
     nothing, // A

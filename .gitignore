@@ -1,6 +1,9 @@
 # Logs
 *.log
 
+# Bin
+bf2
+
 # Prerequisites
 *.d
 
