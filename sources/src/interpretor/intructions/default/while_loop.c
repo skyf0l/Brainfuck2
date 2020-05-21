@@ -10,10 +10,14 @@ int while_in(mem_t *mem)
         return (EXIT_SUCCESS);
     while (while_layer != 0 && mem->script.ops[mem->script.op_id]) {
         ++(mem->script.op_id);
-        if (mem->script.ops[mem->script.op_id] == ']')
+        if (mem->script.ops[mem->script.op_id] == ']') 
             ++while_layer;
         else if (mem->script.ops[mem->script.op_id] == '[')
             --(while_layer);
+        else if (!mem->script.ops[mem->script.op_id]) {
+            --(mem->script.op_id);
+            return (EXIT_SUCCESS);
+        }
     }
     return (EXIT_SUCCESS);
 }
@@ -24,7 +28,7 @@ int while_out(mem_t *mem)
 
     if (!mem->tape[mem->tape_ptr])
         return (EXIT_SUCCESS);
-    while (while_layer != 0 && mem->script.ops[mem->script.op_id]) {
+    while (while_layer != 0 && mem->script.op_id > 0) {
         --(mem->script.op_id);
         if (mem->script.ops[mem->script.op_id] == '[')
             ++while_layer;
