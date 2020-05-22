@@ -23,6 +23,7 @@ cell_type mem[tape_size];
 cell_type *ptr = mem;
 memset(mem, 0, tape_size);
 ```
+
 | Brainfuck | C equivalent        | Meaning                                                                                    |
 |-----------|---------------------|--------------------------------------------------------------------------------------------|
 | >         | ptr++;              | Increment the pointer (to point to the next cell to the right).                            |
@@ -33,7 +34,6 @@ memset(mem, 0, tape_size);
 | ,         | (*ptr) = getchar(); | Accept one value from current input and storing it in the current cell **(Not implemented)**                                   |
 | [         | while(*ptr) {       | Jump forward to the command after the corresponding ] if the cell value is zero.               |
 | ]         | }                   | Jump back to the command after the corresponding [ if the cell value is non-zero. |
-
 
 ## Brainfunk2 Features:
 ### Header:
