@@ -10,11 +10,16 @@ int nothing(mem_t *);
 // brainfuck
 int add(mem_t *);
 int sub(mem_t *);
-int move_ptr_right(mem_t *memory);
-int move_ptr_left(mem_t *memory);
-int print_char(mem_t *memory);
-int while_in(mem_t *memory);
-int while_out(mem_t *memory);
+int move_ptr_right(mem_t *);
+int move_ptr_left(mem_t *);
+int print_char(mem_t *);
+int while_in(mem_t *);
+int while_out(mem_t *);
+
+// conditional statement
+int conditional_in(mem_t *);
+int conditional_mid(mem_t *);
+int conditional_out(mem_t *);
 
 static int (* const INSTRUCTIONS[128])() = {
     nothing,
@@ -50,7 +55,7 @@ static int (* const INSTRUCTIONS[128])() = {
     nothing,
     nothing,
     nothing, // space
-    nothing, // !
+    conditional_out, // !
     nothing, // "
     nothing, // #
     nothing, // $
@@ -75,12 +80,12 @@ static int (* const INSTRUCTIONS[128])() = {
     nothing, // 7
     nothing, // 8
     nothing, // 9
-    nothing, // :
+    conditional_mid, // :
     nothing, // ;
     move_ptr_left, // <
     nothing, // =
     move_ptr_right, // >
-    nothing, // ?
+    conditional_in, // ?
     nothing, // @
     nothing, // A
     nothing, // B

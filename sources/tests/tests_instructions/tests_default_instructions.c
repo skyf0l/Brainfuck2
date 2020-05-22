@@ -13,6 +13,16 @@ Test(instructions, default_)
     cr_assert_eq(INSTRUCTIONS['<'], move_ptr_left);
     cr_assert_eq(INSTRUCTIONS['['], while_in);
     cr_assert_eq(INSTRUCTIONS[']'], while_out);
+    cr_assert_eq(INSTRUCTIONS['.'], print_char);
+}
+
+Test(nothing, basic)
+{
+    mem_t *memory = memory_create(DEFAULT_TAPE_SIZE);
+
+    cr_assert_not_null(memory);
+    cr_assert_eq(nothing(memory), EXIT_SUCCESS);
+    memory_destroy(memory);
 }
 
 Test(add, basic)
