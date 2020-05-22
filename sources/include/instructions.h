@@ -16,6 +16,11 @@ int print_char(mem_t *memory);
 int while_in(mem_t *memory);
 int while_out(mem_t *memory);
 
+// conditional statement
+int conditional_in(mem_t *memory);
+int conditional_mid(mem_t *memory);
+int conditional_out(mem_t *memory);
+
 static int (* const INSTRUCTIONS[128])() = {
     nothing,
     nothing,
@@ -50,7 +55,7 @@ static int (* const INSTRUCTIONS[128])() = {
     nothing,
     nothing,
     nothing, // space
-    nothing, // !
+    conditional_out, // !
     nothing, // "
     nothing, // #
     nothing, // $
@@ -75,12 +80,12 @@ static int (* const INSTRUCTIONS[128])() = {
     nothing, // 7
     nothing, // 8
     nothing, // 9
-    nothing, // :
+    conditional_mid, // :
     nothing, // ;
     move_ptr_left, // <
     nothing, // =
     move_ptr_right, // >
-    nothing, // ?
+    conditional_in, // ?
     nothing, // @
     nothing, // A
     nothing, // B
