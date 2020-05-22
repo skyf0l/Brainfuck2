@@ -9,8 +9,11 @@ int conditional_in(mem_t *mem)
         return (EXIT_SUCCESS);
     while (mem->script.ops[mem->script.op_id]) {
         ++(mem->script.op_id);
-        if (mem->script.ops[mem->script.op_id] == '!') 
+        if (mem->script.ops[mem->script.op_id] == '!') {
             --conditional_layer;
+            if (conditional_layer == -1)
+                return (EXIT_SUCCESS);
+        }
         else if (mem->script.ops[mem->script.op_id] == '?')
             ++(conditional_layer);
         else if (conditional_layer == 0 && mem->script.ops[mem->script.op_id] == ':')
