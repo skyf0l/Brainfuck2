@@ -1,6 +1,9 @@
 #include <criterion/criterion.h>
+#include <criterion/redirect.h>
 #include "brainfuck2.h"
 #include "instructions.h"
+
+void redirect(void);
 
 Test(instructions, default_)
 {
@@ -221,5 +224,30 @@ Test(while_out, multi_2)
     add(memory);
     cr_assert_eq(while_out(memory), EXIT_SUCCESS);
     cr_assert_eq(memory->script.op_id, 1);
+    memory_destroy(memory);
+}
+
+Test(print_char, basic, .init = redirect)
+{
+    mem_t *memory = memory_create(DEFAULT_TAPE_SIZE);
+    memory->script.ops = (unsigned char *)"[[[+[][[-]]]]";
+
+    cr_assert_not_null(memory);
+    memory->tape[memory->tape_ptr] = 'T';
+    cr_assert_eq(print_char(memory), EXIT_SUCCESS);
+    cr_assert_stdout_eq_str("T");
+    memory_destroy(memory);
+}
+
+Test(print_char, basic_moved, .init = redirect)
+{
+    mem_t *memory = memory_create(DEFAULT_TAPE_SIZE);
+    memory->script.ops = (unsigned char *)"[[[+[][[-]]]]";
+
+    cr_assert_not_null(memory);
+    memory->tape_ptr = 25;
+    memory->tape[memory->tape_ptr] = 'f';
+    cr_assert_eq(print_char(memory), EXIT_SUCCESS);
+    cr_assert_stdout_eq_str("f");
     memory_destroy(memory);
 }
