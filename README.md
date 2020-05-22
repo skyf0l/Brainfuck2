@@ -66,9 +66,9 @@ All header value must be write at begin of file (if header is malformed, already
 ### Conditional Statements:
 | Brainfunk | C equivalent        | Meaning                                     |
 |-----------|---------------------|---------------------------------------------|
-| ? \[code1\] : \[code2\] ! | if (*ptr) {code1}<br>else {code2} | Execute code1 if cell value is not 0 and code2 else **(Not implemented)** |
+| ? \[code1\] : \[code2\] ! | if (*ptr) {code1}<br>else {code2} | Execute code1 if cell value is not 0 and code2 else |
 
-If you want just if statement you can simplify as `? [code] !`
+If you want just if statement you can simplify as `? [code] !` **(Not implemented)**
 
 ### Functions:
 Functions can be loaded from library files at execution
